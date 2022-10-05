@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    }
+  }
+
+  componentDidMount() {
+    const url = "https://jsonplaceholder.typicode.com/users";
+    fetch(url)
+    .then(response => response.json())
+    .then(json => this.setState({ posts: json }))
+  }
+
+  render() {
+    const { posts } = this.state;
+    return (
+      <div className="container">
+        <div className="jumbotron">
+          <h1 className="display-4">Blog posts</h1>
+        </div>
+        {posts.map((post) => (
+          <div className="card" key={post.name}>
+            <div className="card-header">
+              #{post.name} {post.age}
+            </div>
+            <div className="card-body">
+              <p className="card-text">{post.name}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
 }
-
 export default App;
