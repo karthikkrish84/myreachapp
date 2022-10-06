@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="jumbotron">
-          <h1 className="display-4">Blog posts</h1>
+          <h1 className="display-4">Blog posts 1</h1>
         </div>
         {posts.map((post) => (
           <div className="card" key={post.name}>
