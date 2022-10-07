@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:80/hello/world";
+    const url = "http://karthikjavaapp.eastus.cloudapp.azure.com:80/hello/world";
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({ posts: json }))
