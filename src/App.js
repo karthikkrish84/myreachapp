@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "https://jsonplaceholder.typicode.com/users";
+    const url = "http://localhost:80/hello/world";
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({ posts: json }))
