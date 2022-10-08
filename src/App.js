@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://localhost:8080/employee";
+    const url = "http://azurejavaapp.eastus.cloudapp.azure.com:80/employee";
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({ posts: json }))
