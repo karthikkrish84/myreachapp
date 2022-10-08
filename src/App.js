@@ -9,7 +9,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://karthikjavaapp.eastus.cloudapp.azure.com:80/hello/world";
+    const url = "http://localhost:8080/employee";
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({ posts: json }))
@@ -18,21 +18,26 @@ class App extends Component {
   render() {
     const { posts } = this.state;
     return (
-      <div className="container">
-        <div className="jumbotron">
-          <h1 className="display-4">Blog posts</h1>
-        </div>
-        {posts.map((post) => (
-          <div className="card" key={post.name}>
-            <div className="card-header">
-              #{post.name} {post.age}
-            </div>
-            <div className="card-body">
-              <p className="card-text">{post.name}</p>
-            </div>
-          </div>
+      <div className="App">
+         <tbody>
+         <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Salary</th>
+          <th>Date Of Joining</th>
+        </tr>
+        {posts.map((post,index) => (
+          <tr key={index}>
+            <td>{post.employeeID}</td>
+            <td>{post.name}</td>
+            <td>{post.dept}</td>
+            <td>{post.salary}</td>
+            <td>{post.joiningDate}</td>
+          </tr>
         ))}
-      </div>
+         </tbody>
+         </div>
     );
   }
 }
