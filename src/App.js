@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = "http://azurejavaapp.eastus.cloudapp.azure.com:80/employee";
+    const url = "http://azurejavaapp.centralus.cloudapp.azure.com:80/employee";
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({ posts: json }))
